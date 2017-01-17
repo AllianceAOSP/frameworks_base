@@ -52,6 +52,7 @@ import android.system.Os;
 import android.provider.Settings;
 
 import com.android.internal.telephony.ITelephony;
+import com.android.internal.util.AllianceUtils;
 import com.android.server.pm.PackageManagerService;
 
 import android.util.Log;
@@ -78,6 +79,7 @@ public final class ShutdownThread extends Thread {
     private static final int PACKAGE_MANAGER_STOP_PERCENT = 6;
     private static final int RADIO_STOP_PERCENT = 18;
     private static final int MOUNT_SERVICE_STOP_PERCENT = 20;
+    private static final String RESTART_SYSTEMUI = "restart_systemui";
 
     // length of vibration before shutting down
     private static final int SHUTDOWN_VIBRATE_MS = 500;
@@ -204,7 +206,11 @@ public final class ShutdownThread extends Thread {
                                 if (selected != ListView.INVALID_POSITION) {
                                     String actions[] = context.getResources().getStringArray(
                                             com.android.internal.R.array.shutdown_reboot_actions);
-                                    if (selected >= 0 && selected < actions.length) {
+                                    if (actions[selected].equals(RESTART_SYSTEMUI)) {
+                                        mReason = actions[selected];
+                                        restartSystemUI();
+                                        return;
+                                    } else if (selected >= 0 && selected < actions.length) {
                                         mReason = actions[selected];
                                     }
                                 }
@@ -223,6 +229,10 @@ public final class ShutdownThread extends Thread {
         } else {
             beginShutdownSequence(context);
         }
+    }
+
+    private static void restartSystemUI() {
+        AllianceUtils.restartSystemUI();
     }
 
     private static class CloseDialogReceiver extends BroadcastReceiver

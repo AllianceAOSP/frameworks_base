@@ -17,5 +17,7 @@
     <string name="reboot_recovery">Recovery</string>
     <!-- Button to restart the phone into bootloader, within the Restart Options dialog -->
     <string name="reboot_bootloader">Bootloader</string>
+    <!-- Button to restart the phone SystemUI, within the Restart Options dialog -->
+    <string name="restart_systemui">Restart SystemUI</string>
 
 </resources>
