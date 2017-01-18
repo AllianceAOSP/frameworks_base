@@ -24,6 +24,7 @@ import com.android.internal.policy.EmergencyAffordanceManager;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
 import com.android.internal.R;
+import com.android.internal.util.AllianceUtils;
 import com.android.internal.widget.LockPatternUtils;
 
 import android.app.ActivityManager;
@@ -37,6 +38,8 @@ import android.content.IntentFilter;
 import android.content.pm.UserInfo;
 import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuff.Mode;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.os.Build;
@@ -850,6 +853,8 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             } else if (mIconResId != 0) {
                 icon.setImageDrawable(context.getDrawable(mIconResId));
             }
+            AllianceUtils.colorizeIcon(context, icon, Settings.System.POWER_MENU_ICON_COLOR, 0x8a000000);
+
             if (mMessage != null) {
                 messageView.setText(mMessage);
             } else {
@@ -946,6 +951,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 icon.setImageDrawable(context.getDrawable(
                         (on ? mEnabledIconResId : mDisabledIconResid)));
                 icon.setEnabled(enabled);
+                AllianceUtils.colorizeIcon(context, icon, Settings.System.POWER_MENU_ICON_COLOR, 0x8a000000);
             }
 
             if (statusView != null) {

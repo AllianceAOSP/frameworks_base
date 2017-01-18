@@ -3740,7 +3740,12 @@ public final class Settings {
          * @hide
          */
         public static final String KEYGUARD_SHOW_DATE = "keyguard_show_date";
-      
+
+        /**
+         * Colorize power menu icons 
+         * @hide
+         */
+        public static final String POWER_MENU_ICON_COLOR = "power_menu_icon_color";      
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
