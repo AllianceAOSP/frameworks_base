@@ -853,7 +853,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             } else if (mIconResId != 0) {
                 icon.setImageDrawable(context.getDrawable(mIconResId));
             }
-            AllianceUtils.colorizeIcon(context, icon, Settings.System.POWER_MENU_ICON_COLOR, 0x8a000000);
+            AllianceUtils.colorizeIconAtop(context, icon, Settings.System.POWER_MENU_ICON_COLOR, 0x8a000000);
 
             if (mMessage != null) {
                 messageView.setText(mMessage);
@@ -951,7 +951,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 icon.setImageDrawable(context.getDrawable(
                         (on ? mEnabledIconResId : mDisabledIconResid)));
                 icon.setEnabled(enabled);
-                AllianceUtils.colorizeIcon(context, icon, Settings.System.POWER_MENU_ICON_COLOR, 0x8a000000);
+                AllianceUtils.colorizeIconAtop(context, icon, Settings.System.POWER_MENU_ICON_COLOR, 0x8a000000);
             }
 
             if (statusView != null) {
