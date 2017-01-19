@@ -844,6 +844,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             final String status = getStatus();
             if (!TextUtils.isEmpty(status)) {
                 statusView.setText(status);
+                AllianceUtils.colorizeText(context, statusView, Settings.System.POWER_MENU_SECONDARY_TEXT_COLOR, 0x8a000000); 
             } else {
                 statusView.setVisibility(View.GONE);
             }
@@ -860,6 +861,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             } else {
                 messageView.setText(mMessageResId);
             }
+            AllianceUtils.colorizeText(context, messageView, Settings.System.POWER_MENU_PRIMARY_TEXT_COLOR, 0xff000000); 
 
             return v;
         }
@@ -944,6 +946,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             if (messageView != null) {
                 messageView.setText(mMessageResId);
                 messageView.setEnabled(enabled);
+                AllianceUtils.colorizeText(context, messageView, Settings.System.POWER_MENU_PRIMARY_TEXT_COLOR, 0xff000000); 
             }
 
             boolean on = ((mState == State.On) || (mState == State.TurningOn));
@@ -958,9 +961,11 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 statusView.setText(on ? mEnabledStatusMessageResId : mDisabledStatusMessageResId);
                 statusView.setVisibility(View.VISIBLE);
                 statusView.setEnabled(enabled);
+
+                AllianceUtils.colorizeText(context, statusView, Settings.System.POWER_MENU_SECONDARY_TEXT_COLOR, 0x8a000000); 
             }
             v.setEnabled(enabled);
-
+ 
             return v;
         }
 

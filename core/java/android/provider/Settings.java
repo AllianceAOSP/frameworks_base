@@ -3748,6 +3748,18 @@ public final class Settings {
         public static final String POWER_MENU_ICON_COLOR = "power_menu_icon_color";      
 
         /**
+         * Colorize power menu primary text color 
+         * @hide
+         */
+        public static final String POWER_MENU_PRIMARY_TEXT_COLOR = "power_menu_primary_text_color";
+
+        /**
+         * Colorize power menu secondary text color
+         * @hide
+         */
+        public static final String POWER_MENU_SECONDARY_TEXT_COLOR = "power_menu_secondary_text_color";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
